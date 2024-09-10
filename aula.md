@@ -25,8 +25,27 @@ Constantes
 
 Strings (textos): " " ou ' ' ou ` `
 Number: 2 ou 2.14
-Function
+[x] - Function
 
 ## Operadores
 
-Operador de atribuição de valor =
+[x] - Operador de atribuição de valor =
+[x] - Operador de concatenação +
+
+## Estruturas de dados
+
+### Arrays:
+
+Uma lista que contém qualquer tipo de dados
+
+### Objetos:
+
+[x] - Atributos e métodos
+[x] - Criação e manipulação de objetos
+[x] - Acesso a propriedades de objetos
+
+### - Function
+
+[x] - Criar, passar argumento
+[x] - Executar
+[x] - Arrow function / named function
