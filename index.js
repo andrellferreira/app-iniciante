@@ -19,15 +19,33 @@ tentei instalar e deu erro. Usei o comando npm cache clean (não funcionou). Use
 //const { select, input } = require("@inquirer/prompts");
 //checkbox inserido para usar na função listarMetas()
 const { select, input, checkbox } = require("@inquirer/prompts");
+const { parse } = require("path");
+const fs = require("fs").promises;
 
 let mensagem = "Bem vindo ao App de Metas";
 
+/*
 let meta = {
   value: "Tomar 3L de água diariamente",
   checked: false,
 };
 
 let metas = [meta];
+//Subsitituídos pelo arquivo metas.json
+*/
+
+const carregarMetas = async () => {
+  try {
+    const dados = await fs.readFile("metas.json", "utf-8");
+    metas = JSON.parse(dados);
+  } catch (erro) {
+    metas = [];
+  }
+};
+
+const salvarMetas = async () => {
+  await fs.writeFile("metas.json", JSON.stringify(metas, null, 2));
+};
 
 const cadastrarMeta = async () => {
   const meta = await input({ message: "Digite a meta:" });
@@ -46,6 +64,10 @@ const cadastrarMeta = async () => {
 };
 
 const listarMetas = async () => {
+  if (metas.length == 0) {
+    mensagem = "Não existem metas cadastradas";
+    return;
+  }
   const respostas = await checkbox({
     message:
       "Uses as setas para mudar de meta, o espaço para marcar ou desmacar e o Enter para finalizar essa etapa",
@@ -74,6 +96,10 @@ const listarMetas = async () => {
 };
 
 const metasRealizadas = async () => {
+  if (metas.length == 0) {
+    mensagem = "Não existem metas cadastradas";
+    return;
+  }
   const realizadas = metas.filter((meta) => {
     return meta.checked;
   }); // () => {} Higher Other Function
@@ -91,6 +117,10 @@ const metasRealizadas = async () => {
 };
 
 const metasAbertas = async () => {
+  if (metas.length == 0) {
+    mensagem = "Não existem metas cadastradas";
+    return;
+  }
   const abertas = metas.filter((meta) => {
     return !metas.checked;
   });
@@ -107,6 +137,11 @@ const metasAbertas = async () => {
 };
 
 const deletarMetas = async () => {
+  if (metas.length == 0) {
+    mensagem = "Não existem metas cadastradas";
+    return;
+  }
+
   const metasDesmarcadas = metas.map((meta) => {
     return { value: meta.value, checked: false };
   });
@@ -141,9 +176,12 @@ const mostrarMensagem = () => {
 const start = async () => {
   //let opcao = "cadastrar";//loop infinito
   //let opcao = "sair";
+  await carregarMetas();
 
   while (true) {
     mostrarMensagem();
+    await salvarMetas();
+
     const opcao = await select({
       message: "Menu >",
       choices: [
