@@ -50,10 +50,19 @@ Uma lista que contém qualquer tipo de dados
 [x] - Executar
 [x] - Arrow function / named function
 
-### Estrutura de repetição
+# Estrutura de repetição
 
 [x] - While
 
-### Condicionais
+# Condicionais
 
 [x] - Switch
+
+## Módulos em node.js:
+
+[x] - Importação de módulos (require, CommonJS)
+[x] - Biblioteca 'inquirer' para criar prompts interativos
+
+## Programação assíncrona e promises:
+
+[x] - Uso de funções assíncronas (async/await)

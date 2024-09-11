@@ -14,11 +14,29 @@ tentei instalar e deu erro. Usei o comando npm cache clean (não funcionou). Use
 */
 // Opção 02 - Arrow Function, atribuindo a uma constante
 
-const start = () => {
+const { select } = require("@inquirer/prompts");
+const start = async () => {
   //let opcao = "cadastrar";//loop infinito
-  let opcao = "sair";
+  //let opcao = "sair";
 
   while (true) {
+    const opcao = await select({
+      message: "Menu >",
+      choices: [
+        {
+          name: "Cadastrar meta",
+          value: "cadastrar",
+        },
+        {
+          name: "Listar meta",
+          value: "listar",
+        },
+        {
+          name: "Sair",
+          value: "sair",
+        },
+      ],
+    }); //await - aguardar -> sempre que for usada, a funçao precisará usar async
     switch (opcao) {
       case "cadastrar":
         console.log("Vamos cadastrar");
@@ -27,6 +45,7 @@ const start = () => {
         console.log("Vamos listar");
         break;
       case "sair":
+        console.log("Até a próxima!");
         return;
     }
   }
