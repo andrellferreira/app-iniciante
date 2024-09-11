@@ -53,3 +53,7 @@ Uma lista que contém qualquer tipo de dados
 ### Estrutura de repetição
 
 [x] - While
+
+### Condicionais
+
+[x] - Switch
