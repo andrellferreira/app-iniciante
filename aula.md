@@ -1,6 +1,11 @@
 ## Linguagem de programação
 
-## Peças de uma liinguagem
+Maneira de dar instrução ao computador
+Como um lego, você irá utilizar peças para criar algoritmos, ou seja, para resolver problemas.
+
+    **Algoritmos**: Sequência de passos lógicos e finita para resolução de um problema.
+
+## Peças de uma linguagem
 
 - [x] Comentários
 - [x] Declaração de variáveis (const, let)
@@ -23,20 +28,21 @@ Constantes
 
 # Tipos de dados:
 
-Strings (textos): " " ou ' ' ou ` `
-Number: 2 ou 2.14
+[x] - Strings (textos): " " ou ' ' ou ` `
+[x] - Number: 2 ou 2.14
 [x] - Function
 
 ## Operadores
 
 [x] - Operador de atribuição de valor =
 [x] - Operador de concatenação +
+[x] - Operadores de comparação: == != > < >= <=
 
 ## Estruturas de dados
 
 ### Arrays:
 
-Uma lista que contém qualquer tipo de dados
+[x] - Uma lista que contém qualquer tipo de dados
 
 ### Objetos:
 
@@ -57,6 +63,7 @@ Uma lista que contém qualquer tipo de dados
 # Condicionais
 
 [x] - Switch
+[x] - If/Else
 
 ## Módulos em node.js:
 
